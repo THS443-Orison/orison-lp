@@ -13,7 +13,7 @@ import triangle6 from '@/public/images/triangle-6.svg';
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center">
-      <div className="w-full max-w-sm bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-sm bg-white shadow-md shadow-gray-500">
         <Hero />
         <CtaButton />
         <div className="section mx-5 mt-10">
