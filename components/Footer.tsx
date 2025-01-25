@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import logo from '@/public/images/orison-logo.svg';
+
 export default function Footer() {
   return (
     <footer className="text-center text-gray-800 my-10">

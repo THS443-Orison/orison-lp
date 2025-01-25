@@ -1,15 +1,15 @@
-'use client';
+import Image from 'next/image';
+import Step from '@/components/Step';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import CtaButton from '@/components/CtaButton';
 import SubTitle from '@/components/SubTitle';
-import Image from 'next/image';
-import crane from '@/public/images/crane.svg';
-import demoMovie from '@/public/images/demo-movie.png';
-import Step from '@/components/Step';
 import futureImage from '@/public/images/future.png';
-import Footer from '@/components/Footer';
 import triangle5 from '@/public/images/triangle-5.svg';
 import triangle6 from '@/public/images/triangle-6.svg';
+import crane from '@/public/images/crane.svg';
+import demoMovie from '@/public/images/demo-movie.png';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center">

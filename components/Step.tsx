@@ -8,6 +8,7 @@ import step2 from '@/public/images/step2.png';
 import step3 from '@/public/images/step3.png';
 import demoImage from '@/public/images/demo-step.png';
 import demoIcon from '@/public/images/demo-icon.png';
+
 interface StepProps {
   stepNumber: number;
   title: string;
@@ -37,7 +38,7 @@ export default function Step({ stepNumber, title, desc }: StepProps) {
     <div className='mb-14'>
       <div className="flex gap-4 items-center mb-6 ml-12">
         <div className="">
-          <Image src={stepIcon} 
+          <Image src={stepIcon}
           className='w-auto h-8'
           alt="Step Icon" />
         </div>
