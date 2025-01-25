@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-import stepIcon1 from '@/public/images/1.png';
-import stepIcon2 from '@/public/images/2.png';
-import stepIcon3 from '@/public/images/3.png';
-import step1 from '@/public/images/step1.png';
-import step2 from '@/public/images/step2.png';
-import step3 from '@/public/images/step3.png';
-import demoImage from '@/public/images/demo-step.png';
-import demoIcon from '@/public/images/demo-icon.png';
+import stepIcon1 from '@/assets/images/1.png';
+import stepIcon2 from '@/assets/images/2.png';
+import stepIcon3 from '@/assets/images/3.png';
+import step1 from '@/assets/images/step1.png';
+import step2 from '@/assets/images/step2.png';
+import step3 from '@/assets/images/step3.png';
+import demoImage from '@/assets/images/demo-step.png';
+import demoIcon from '@/assets/images/demo-icon.png';
 
 interface StepProps {
   stepNumber: number;

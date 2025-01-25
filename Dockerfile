@@ -1,41 +1,30 @@
 FROM node:lts-slim AS base
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable pnpm
 WORKDIR /app
 
-RUN mkdir -p .next/cache
+COPY package.json package-lock.json ./
+RUN npm ci
 
-COPY --link package.json pnpm-lock.yaml ./
+COPY tsconfig.json next.config.ts tailwind.config.ts postcss.config.mjs ./
+COPY src/ ./src/
+COPY public/ ./public/
 
 FROM base AS builder
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN npm run build
 
-FROM builder AS nextjs
-ARG NEXT_DEPLOYMENT_ID
-ARG NEXT_SERVER_ACTIONS_ENCRYPTION_KEY
-
-COPY --link next.config.mjs tsconfig.json ./
-COPY --link src/ ./src/
-
-RUN --mount=type=cache,target=/app/.next/cache pnpm run build
-
-FROM base AS prod
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --prod
-
-FROM node:lts-slim
+FROM node:lts-slim AS production
 WORKDIR /app
 
-RUN apt-get update -y && apt-get install -y openssl libssl-dev
+COPY --from=base /app/package.json /app/package-lock.json ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public/
+COPY --from=builder /app/src ./src/
 
-ENV NODE_ENV=production \
-    HOSTNAME=0.0.0.0 \
-    NEXT_OTEL_VERBOSE=1
+RUN npm install --omit=dev
 
-COPY --link --from=prod /app/node_modules ./node_modules
-COPY --link --from=nextjs /app/.next/static ./.next/static
-COPY --link --from=nextjs /app/.next/standalone /app/
+ENV NODE_ENV=production
+ENV PORT=3000
 
-CMD ["node", "--enable-source-maps", "server.js"]
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]
