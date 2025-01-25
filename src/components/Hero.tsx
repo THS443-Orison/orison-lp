@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import heroT from '@/public/images/hero-t.svg';
-import heroB from '@/public/images/hero-b.svg';
-import logo from '@/public/images/orison-logo.svg';
+import heroT from '@/assets/images/hero-t.svg';
+import heroB from '@/assets/images/hero-b.svg';
+import logo from '@/assets/images/orison-logo.svg';
 
 export default function Hero() {
   return (

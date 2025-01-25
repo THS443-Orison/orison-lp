@@ -4,11 +4,11 @@ import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import CtaButton from '@/components/CtaButton';
 import SubTitle from '@/components/SubTitle';
-import futureImage from '@/public/images/future.png';
-import triangle5 from '@/public/images/triangle-5.svg';
-import triangle6 from '@/public/images/triangle-6.svg';
-import crane from '@/public/images/crane.svg';
-import demoMovie from '@/public/images/demo-movie.png';
+import futureImage from '@/assets/images/future.png';
+import triangle5 from '@/assets/images/triangle-5.svg';
+import triangle6 from '@/assets/images/triangle-6.svg';
+import crane from '@/assets/images/crane.svg';
+import demoMovie from '@/assets/images/demo-movie.png';
 
 export default function Home() {
   return (

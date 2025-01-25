@@ -1,41 +1,47 @@
+# ベースイメージ
 FROM node:lts-slim AS base
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable pnpm
 WORKDIR /app
 
-RUN mkdir -p .next/cache
+# パッケージファイルをコピーしてインストール
+COPY package.json package-lock.json ./
+RUN npm ci
 
-COPY --link package.json pnpm-lock.yaml ./
+# ソースコードをコピー
+COPY tsconfig.json next.config.ts tailwind.config.ts postcss.config.mjs ./
+COPY src/ ./src/
+COPY public/ ./public/
 
+# ビルド用のステージ
 FROM base AS builder
 
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+# Next.js をビルド
+RUN npm run build
 
-FROM builder AS nextjs
-ARG NEXT_DEPLOYMENT_ID
-ARG NEXT_SERVER_ACTIONS_ENCRYPTION_KEY
-
-COPY --link next.config.mjs tsconfig.json ./
-COPY --link src/ ./src/
-
-RUN --mount=type=cache,target=/app/.next/cache pnpm run build
-
-FROM base AS prod
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --prod
-
-FROM node:lts-slim
+# プロダクション用のイメージ
+FROM node:lts-slim AS production
 WORKDIR /app
 
-RUN apt-get update -y && apt-get install -y openssl libssl-dev
+# `package.json` と `package-lock.json` を `base` からコピー
+COPY --from=base /app/package.json /app/package-lock.json ./
 
-ENV NODE_ENV=production \
-    HOSTNAME=0.0.0.0 \
-    NEXT_OTEL_VERBOSE=1
+# `.next` ディレクトリを `builder` からコピー
+COPY --from=builder /app/.next ./.next
 
-COPY --link --from=prod /app/node_modules ./node_modules
-COPY --link --from=nextjs /app/.next/static ./.next/static
-COPY --link --from=nextjs /app/.next/standalone /app/
+# `public/` を `builder` からコピー（Tailwind の purge CSS のため）
+COPY --from=builder /app/public ./public/
 
-CMD ["node", "--enable-source-maps", "server.js"]
+# `src/` もコピー（Tailwind の purge に影響するため）
+COPY --from=builder /app/src ./src/
+
+# 本番用の依存関係のみインストール
+RUN npm install --omit=dev
+
+# 環境変数を設定
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# ポートを公開
+EXPOSE 3000
+
+# アプリケーションを起動
+CMD ["npm", "run", "start"]

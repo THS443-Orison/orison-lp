@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import kiritori from '@/public/images/kiritori.svg'
+import kiritori from '@/assets/images/kiritori.svg'
 
 export default function Kiritori() {
   return (
