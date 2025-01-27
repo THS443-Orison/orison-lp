@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         {/* 背景用の薄暗いオーバーレイ */}
         <div className="sm:absolute sm:inset-0 sm:bg-white sm:bg-opacity-30 sm:pointer-events-none w-full">
-          <div className="fixed lg:bottom-48 md:left-60 md:bottom-40 md:left-24 sm:bottom-24 sm:left-8 animate-randomMove">
+          <div className="fixed lg:bottom-40 md:left-58 md:bottom-24 md:left-24 sm:bottom-16 sm:left-8 animate-randomMove">
             <CtaMessage />
             <Image
               src={QR}

@@ -11,17 +11,15 @@ export default function Hero() {
       <Image
         src={heroT}
         alt="Hero Image"
-        style={{ objectFit: 'cover' }}
       />
     </div>
     <div className="w-52 mx-auto">
-      <Image src={logo} alt="logo Image" objectFit="contain" />
+      <Image src={logo} alt="logo Image" unoptimized />
     </div>
     <div className="w-full mt-10">
       <Image
         src={heroB}
         alt="Hero Image"
-        style={{ objectFit: 'cover' }}
       />
     </div>
     <p className="text-center text-gray-800 text-xs absolute top-72 w-full mt-3 tracking-widest">

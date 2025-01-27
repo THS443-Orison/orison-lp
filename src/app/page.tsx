@@ -59,13 +59,11 @@ export default function Home() {
           <Image
             src={triangle5}
             alt="Triangle5 Image"
-            objectFit="contain"
             className="absolute right-0 top-1/2 mt-[-120px]"
           />
           <Image
             src={triangle6}
             alt="Triangle5 Image"
-            objectFit="contain"
             className="absolute left-0 top-3/4 mt-[-70px]"
           />
           <SubTitle

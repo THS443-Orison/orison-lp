@@ -47,7 +47,6 @@ export default function SubTitle({
         <Image
           src={triangleImage_a}
           alt="Triangle1 Image"
-          objectFit="contain"
         />
       </div>
       <div className="text-center">
@@ -65,7 +64,6 @@ export default function SubTitle({
         <Image
           src={triangleImage_b}
           alt="Triangle2 Image"
-          objectFit="contain"
         />
       </div>
     </div>
