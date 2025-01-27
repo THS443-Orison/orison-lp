@@ -24,12 +24,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100 text-gray-800 sm:bg-[url('/images/bg2.png')] bg-cover bg-center bg-fixed relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-800 sm:bg-[url('/images/bg2.png')] bg-cover bg-center bg-fixed relative`}
       >
         {/* 背景用の薄暗いオーバーレイ */}
         <div className="sm:absolute sm:inset-0 sm:bg-white sm:bg-opacity-30 sm:pointer-events-none"></div>
-
-        <div className="min-h-screen flex justify-center sm:justify-end items-center sm:mr-56 relative ">
+        <div className="min-h-screen flex justify-center sm:justify-end items-center sm:mr-56 relative bg-background">
           <main className="mobile">{children}</main>
         </div>
       </body>

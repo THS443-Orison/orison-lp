@@ -1,20 +1,23 @@
-import Image from 'next/image';
-import Step from '@/components/Step';
-import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
-import CtaButton from '@/components/CtaButton';
-import SubTitle from '@/components/SubTitle';
-import futureImage from '@/assets/images/future.png';
-import triangle5 from '@/assets/images/triangle-5.svg';
-import triangle6 from '@/assets/images/triangle-6.svg';
-import crane from '@/assets/images/crane.svg';
-import demoMovie from '@/assets/images/demo-movie.png';
 
+import Hero from "@/components/Hero";
+import CtaButton from "@/components/CtaButton";
+import SubTitle from "@/components/SubTitle";
+import Image from "next/image";
+import crane from "@/assets/images/crane.svg";
+import demoMovie from "@/assets/images/demo-movie.png";
+import Step from "@/components/Step";
+// import futureImage from "@/assets/images/future.png";
+import Footer from "@/components/Footer";
+import triangle5 from "@/assets/images/triangle-5.svg";
+import triangle6 from "@/assets/images/triangle-6.svg";
+import Feature from "@/assets/images/feature.png";
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center">
-      <div className="w-full max-w-sm bg-white shadow-md shadow-gray-500">
-        <Hero />
+    <div className="min-h-screen flex justify-center bg">
+      <div className="w-full max-w-[390px] sm:shadow-md sm:shadow-gray-500">
+        <div className="bg-white">
+          <Hero />
+        </div>
         <CtaButton />
         <div className="section mx-5 mt-10">
           <SubTitle
@@ -50,13 +53,23 @@ export default function Home() {
               </span>
             </p>
             <div className="mx-auto flex justify-center mt-5">
-              <Image src={crane} alt="Crane Image" className="mb-8" />
+              <Image src={crane} alt="Crane Image" />
             </div>
           </div>
         </div>
-        <div className="section mx-5 mt-10 mb-14 relative">
-          <Image src={triangle5} alt="Triangle5 Image" objectFit="contain" className='absolute right-0 top-2/4'/>
-          <Image src={triangle6} alt="Triangle5 Image" objectFit="contain" className='absolute left-0 top-3/4'/>
+        <div className="section mx-5 mt-16 relative">
+          <Image
+            src={triangle5}
+            alt="Triangle5 Image"
+            objectFit="contain"
+            className="absolute right-0 top-2/4"
+          />
+          <Image
+            src={triangle6}
+            alt="Triangle5 Image"
+            objectFit="contain"
+            className="absolute left-0 top-3/4"
+          />
           <SubTitle
             imageNum_a={3}
             imageNum_b={4}
@@ -70,7 +83,7 @@ export default function Home() {
               <Image src={demoMovie} width={240} alt="demo movie" />
             </div>
           </div>
-          <Step stepNumber={1} title="折り紙を折る" desc="折り紙を折る"/>
+          <Step stepNumber={1} title="折り紙を折る" desc="折り紙を折る" />
           <Step
             stepNumber={2}
             title="アプリで読み込む"
@@ -82,10 +95,7 @@ export default function Home() {
             desc="好きな位置に置いてみよう！"
           />
         </div>
-        <div className="bord bg-gray-200 mt-16 width-full h-72 mb-16">
-          {/* 空きスペース */}
-        </div>
-        <div className="future mx-5 mt-10 mb-16">
+        <div className="future mx-5 mt-16 mb-16">
           <SubTitle
             positionR="mt-5"
             positionL="mt-5"
@@ -94,7 +104,7 @@ export default function Home() {
             title="50年後の未来"
             section="FUTURE"
           />
-          <div className="text-center text-gray-800 text-xs mt-14 mx-5 leading-5">
+          <div className="text-center text-gray-800 text-xs mt-8 mx-5 leading-5">
             <p>
               私たちの願う「50年後の未来は」・・・
               <br />
@@ -104,14 +114,16 @@ export default function Home() {
               災害が起こった際に誰に活用できる仮設住宅が提供されることです
             </p>
           </div>
-          <div className="flex justify-center mt-10">
-            <Image src={futureImage} alt="Future Image" />
+          <div className="flex justify-center mt-4">
+            <Image src={Feature} alt="未来の都市" />
           </div>
-          <p className='text-center text-gray-800 text-xs mt-10 mx-5 leading-5'>そして、持続可能な社会につながっていくのです</p>
+          <p className="text-center text-gray-800 text-xs mt-4 mx-5 leading-5">
+            そして、持続可能な社会につながっていくのです
+          </p>
         </div>
         <CtaButton />
-        <hr className='mx-10 mt-20 border-gray-300'/>
-        <Footer/>
+        <hr className="mx-10 mt-20 border-gray-300" />
+        <Footer />
       </div>
     </div>
   );

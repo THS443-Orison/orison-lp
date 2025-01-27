@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import heroT from '@/assets/images/hero-t.svg';
 import heroB from '@/assets/images/hero-b.svg';
-import logo from '@/assets/images/orison-logo.svg';
+import logo from '@/assets/images/Orison.gif';
 
 export default function Hero() {
   return (

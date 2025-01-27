@@ -1,15 +1,11 @@
-import React from 'react'
-import Image from 'next/image'
-import kiritori from '@/assets/images/kiritori.svg'
+import React from "react";
+import Image from "next/image";
+import PostBtn from "@/assets/images/postBtn.gif";
 
 export default function Kiritori() {
   return (
     <div>
-      <Image
-      src={kiritori}
-      alt="Kiritori Image"
-
-      />
+      <Image src={PostBtn} alt="Kiritori Image" className="background-image" />
     </div>
-  )
+  );
 }
