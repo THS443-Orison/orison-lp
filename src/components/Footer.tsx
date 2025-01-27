@@ -8,7 +8,7 @@ export default function Footer() {
       <div className='flex justify-center'>
         <Image src={logo} alt="logo Image" width={200} objectFit="contain" />
       </div>
-      <p className="text-sm mt-3">THS443-〇〇〇〇〇</p>
+      <p className="text-sm mt-3">THS443-Orison</p>
     </footer>
   );
 }

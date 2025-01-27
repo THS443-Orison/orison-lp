@@ -1,12 +1,10 @@
-
 import Hero from "@/components/Hero";
 import CtaButton from "@/components/CtaButton";
+import CtaButton2 from "@/components/CtaButton2";
 import SubTitle from "@/components/SubTitle";
 import Image from "next/image";
 import crane from "@/assets/images/crane.svg";
-import demoMovie from "@/assets/images/demo-movie.png";
 import Step from "@/components/Step";
-// import futureImage from "@/assets/images/future.png";
 import Footer from "@/components/Footer";
 import triangle5 from "@/assets/images/triangle-5.svg";
 import triangle6 from "@/assets/images/triangle-6.svg";
@@ -14,7 +12,7 @@ import Feature from "@/assets/images/feature.png";
 export default function Home() {
   return (
     <div className="min-h-screen flex justify-center bg">
-      <div className="w-full max-w-[390px] sm:shadow-md sm:shadow-gray-500">
+      <div className="w-full max-w-[400px] sm:shadow-md sm:shadow-gray-500">
         <div className="bg-white">
           <Hero />
         </div>
@@ -62,13 +60,13 @@ export default function Home() {
             src={triangle5}
             alt="Triangle5 Image"
             objectFit="contain"
-            className="absolute right-0 top-2/4"
+            className="absolute right-0 top-1/2 mt-[-120px]"
           />
           <Image
             src={triangle6}
             alt="Triangle5 Image"
             objectFit="contain"
-            className="absolute left-0 top-3/4"
+            className="absolute left-0 top-3/4 mt-[-70px]"
           />
           <SubTitle
             imageNum_a={3}
@@ -77,11 +75,8 @@ export default function Home() {
             positionL="mt-10"
             title={`折り紙で織りなす<br/>未来都市`}
           />
-          <div className="text-center text-gray-800 text-xs  mx-10 leading-5">
-            <p className="mb-2">未来都市『ORISON』を体験してみよう</p>
-            <div className="flex justify-center mb-14">
-              <Image src={demoMovie} width={240} alt="demo movie" />
-            </div>
+          <div className="text-center text-gray-800 text-sm  mx-10 leading-5 mb-8 mt-[-24px]">
+            <p>未来都市『ORISON』を体験てよみよう</p>
           </div>
           <Step stepNumber={1} title="折り紙を折る" desc="折り紙を折る" />
           <Step
@@ -121,7 +116,7 @@ export default function Home() {
             そして、持続可能な社会につながっていくのです
           </p>
         </div>
-        <CtaButton />
+        <CtaButton2 />
         <hr className="mx-10 mt-20 border-gray-300" />
         <Footer />
       </div>
