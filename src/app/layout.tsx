@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
-import QR from "@/assets/images/QR.svg";
+import QR from "@/assets/images/QR.png";
 import CtaMessage from "@/components/CtaMessage";
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
@@ -12,8 +12,8 @@ const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
 });
 
 export const metadata: Metadata = {
-  title: "Orison",
-  description: "おりなす",
+  title: "折り紙で織りなす未来都市「ORISON」",
+  description: "あなたの折り紙で、折りなす日本を織りなしていく町づくり体験。その手で祈る新世界へ！",
 };
 export default function RootLayout({
   children,
