@@ -9,6 +9,9 @@ import Footer from "@/components/Footer";
 import triangle5 from "@/assets/images/triangle-5.svg";
 import triangle6 from "@/assets/images/triangle-6.svg";
 import Feature from "@/assets/images/feature.png";
+
+export const runtime = 'edge';
+
 export default function Home() {
   return (
     <div className="min-h-screen flex justify-center bg">
