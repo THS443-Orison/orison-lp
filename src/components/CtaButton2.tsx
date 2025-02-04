@@ -1,8 +1,9 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import PostBtn from "@/assets/images/postBtn.gif";
 import Kiritori from "@/assets/images/kiritori.png";
+
 export default function CtaButton2() {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,7 +22,7 @@ export default function CtaButton2() {
   return (
     <div className="hover-container hover:animate-bounce hover:animate-float mt-[-1px]">
       {isScrolled ? (
-        <Image src={PostBtn} alt="second kiritori image" unoptimized />
+        <Image src={'https://glb.orison-ms.jp/postBtn.gif'} alt="second kiritori image" unoptimized />
       ) : (
         <Image src={Kiritori} alt="first kiritori image" />
       )}
